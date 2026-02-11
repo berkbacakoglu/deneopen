@@ -3,7 +3,7 @@ import { defineConfig } from '@playwright/test';
 export default defineConfig({
   timeout: 30_000,
   webServer: {
-    command: 'pnpm dev',
+    command: 'corepack pnpm dev',
     cwd: __dirname,
     port: 3000,
     reuseExistingServer: true
