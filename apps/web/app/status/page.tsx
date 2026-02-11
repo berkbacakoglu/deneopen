@@ -28,12 +28,15 @@ export default function StatusPage() {
   }, []);
 
   return (
-    <main style={{ maxWidth: 720, margin: '2rem auto', fontFamily: 'sans-serif' }}>
-      <h1>Status</h1>
-      {loading && <p>Checking…</p>}
-      {!loading && error && <p style={{ color: 'crimson' }}>{error}</p>}
-      {!loading && !error && <p>Web app can reach API routes.</p>}
-      {!loading && payload && <pre>{JSON.stringify(payload, null, 2)}</pre>}
+    <main className="status-page">
+      <section className="card">
+        <h1>Status</h1>
+        {loading && <p className="status checking">Checking…</p>}
+        {!loading && error && <p className="status unreachable">{error}</p>}
+        {!loading && !error && <p className="status reachable">Web app can reach API routes.</p>}
+        {!loading && payload && <pre className="status-pre">{JSON.stringify(payload, null, 2)}</pre>}
+        <p><a href="/">← Back to todos</a></p>
+      </section>
     </main>
   );
 }

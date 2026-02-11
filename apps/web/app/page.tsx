@@ -21,6 +21,7 @@ export default function HomePage() {
   const [apiStatus, setApiStatus] = useState<ApiStatus>('checking');
 
   const hasTodos = useMemo(() => todos.length > 0, [todos]);
+  const completedCount = useMemo(() => todos.filter((todo) => todo.completed).length, [todos]);
 
   async function loadTodos() {
     setLoading(true);
@@ -146,8 +147,13 @@ export default function HomePage() {
   return (
     <main className="page-shell">
       <section className="card header-card" aria-label="platform header">
-        <h1>RN + Web Platform</h1>
-        <p>Production-grade starter ready.</p>
+        <div className="header-title-row">
+          <div>
+            <h1>RN + Web Platform</h1>
+            <p>Modern, fast and synced todos across API, web and mobile.</p>
+          </div>
+          <div className="status-pill">{completedCount}/{todos.length} completed</div>
+        </div>
         <a href="/status">Go to status</a>
       </section>
 
