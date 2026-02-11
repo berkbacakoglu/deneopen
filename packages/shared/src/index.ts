@@ -24,7 +24,41 @@ export const UpdateTodoSchema = z.object({
   message: 'At least one field is required'
 });
 
+export const RequestIdParamsSchema = z.object({
+  id: z.string().trim().min(1)
+});
+
+export const ApiErrorCodeSchema = z.enum([
+  'invalid_request',
+  'unauthorized',
+  'not_found',
+  'conflict',
+  'internal_error'
+]);
+
+export const ApiErrorSchema = z.object({
+  ok: z.literal(false),
+  requestId: z.string(),
+  error: ApiErrorCodeSchema,
+  message: z.string(),
+  details: z.unknown().optional()
+});
+
+export const TodoListResponseSchema = z.object({
+  ok: z.literal(true),
+  requestId: z.string(),
+  data: z.array(TodoSchema)
+});
+
+export const TodoResponseSchema = z.object({
+  ok: z.literal(true),
+  requestId: z.string(),
+  data: TodoSchema
+});
+
 export type PingResponse = z.infer<typeof PingResponseSchema>;
 export type Todo = z.infer<typeof TodoSchema>;
 export type CreateTodoInput = z.infer<typeof CreateTodoSchema>;
 export type UpdateTodoInput = z.infer<typeof UpdateTodoSchema>;
+export type ApiErrorCode = z.infer<typeof ApiErrorCodeSchema>;
+export type ApiError = z.infer<typeof ApiErrorSchema>;
