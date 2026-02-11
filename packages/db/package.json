@@ -1,0 +1,25 @@
+{
+  "name": "@packages/db",
+  "version": "0.0.1",
+  "private": true,
+  "type": "module",
+  "main": "src/index.ts",
+  "types": "src/index.ts",
+  "scripts": {
+    "lint": "echo db:lint",
+    "typecheck": "tsc -p tsconfig.json --noEmit",
+    "test": "echo db:test",
+    "prisma:generate": "prisma generate",
+    "prisma:migrate": "prisma migrate dev",
+    "prisma:seed": "tsx prisma/seed.ts"
+  },
+  "dependencies": {
+    "@prisma/client": "^6.3.1",
+    "dotenv": "^16.4.7"
+  },
+  "devDependencies": {
+    "@types/node": "^22.13.4",
+    "prisma": "^6.3.1",
+    "tsx": "^4.19.2"
+  }
+}

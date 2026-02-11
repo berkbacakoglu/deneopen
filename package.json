@@ -1,0 +1,15 @@
+{
+  "name": "rn-web-platform",
+  "private": true,
+  "packageManager": "pnpm@10.6.2",
+  "scripts": {
+    "lint": "corepack pnpm -r lint",
+    "typecheck": "corepack pnpm -r typecheck",
+    "test": "corepack pnpm -r test",
+    "smoke": "corepack pnpm --filter @apps/api smoke && corepack pnpm --filter @apps/web smoke && corepack pnpm --filter @apps/mobile smoke",
+    "dev": "corepack pnpm --parallel --filter @apps/api --filter @apps/web --filter @apps/mobile dev"
+  },
+  "devDependencies": {
+    "typescript": "^5.7.3"
+  }
+}

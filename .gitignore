@@ -1,0 +1,38 @@
+# dependencies
+node_modules/
+**/node_modules/
+
+# env
+.env
+.env.*
+!.env.example
+
+# build outputs
+.next/
+dist/
+build/
+coverage/
+.expo/
+*.tsbuildinfo
+
+# logs
+*.log
+npm-debug.log*
+pnpm-debug.log*
+
+# OS/editor
+.DS_Store
+Thumbs.db
+.vscode/
+.idea/
+
+# OpenClaw local context files (do not push)
+AGENTS.md
+BOOTSTRAP.md
+HEARTBEAT.md
+IDENTITY.md
+SOUL.md
+TOOLS.md
+USER.md
+memory/
+skills/

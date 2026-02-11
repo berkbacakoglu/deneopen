@@ -1,0 +1,30 @@
+{
+  "name": "@apps/api",
+  "version": "0.0.1",
+  "private": true,
+  "type": "module",
+  "scripts": {
+    "dev": "tsx watch src/server.ts",
+    "start": "node dist/server.js",
+    "build": "tsc -p tsconfig.json",
+    "lint": "echo api:lint",
+    "typecheck": "tsc -p tsconfig.json --noEmit",
+    "test": "set DATABASE_URL=postgresql://postgres:postgres@localhost:5432/appdb?schema=public&& vitest run",
+    "smoke": "tsx scripts/smoke.ts"
+  },
+  "dependencies": {
+    "@fastify/sensible": "^6.0.3",
+    "@packages/db": "workspace:*",
+    "@packages/logger": "workspace:*",
+    "@packages/shared": "workspace:*",
+    "fastify": "^5.2.1",
+    "dotenv": "^16.4.7"
+  },
+  "devDependencies": {
+    "@types/node": "^22.13.4",
+    "supertest": "^7.0.0",
+    "tsx": "^4.19.2",
+    "typescript": "^5.7.3",
+    "vitest": "^3.0.5"
+  }
+}
